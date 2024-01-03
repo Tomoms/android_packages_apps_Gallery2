@@ -54,8 +54,7 @@ public class LocalPhotoSource implements WidgetSource {
     /* We don't want to include the download directory */
     private static final String SELECTION =
             String.format("%s != %s", Media.BUCKET_ID, getDownloadBucketId());
-    private static final String ORDER = String.format("CASE WHEN %s != 0 THEN %s ELSE (%s * 1000) END DESC",
-            DATE_TAKEN, DATE_TAKEN, Media.DATE_ADDED);
+    private static final String ORDER = String.format("%s DESC", DATE_TAKEN);
 
     private Context mContext;
     private ArrayList<Long> mPhotos = new ArrayList<Long>();
